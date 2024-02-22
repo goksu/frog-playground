@@ -5,6 +5,12 @@ export const app = new Frog({ basePath: '/api' });
 
 app.frame('/', () => {
   return {
+    imageOptions: {
+      headers: {
+        'content-type': 'image/png',
+        'cache-control': 'public, immutable, no-transform, max-age=0',
+      },
+    },
     image: (
       <div
         style={{
