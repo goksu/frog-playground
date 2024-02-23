@@ -1,7 +1,7 @@
-import { Frog } from 'frog';
+import { Button, Frog } from 'frog';
 import { handle } from 'frog/vercel';
 
-export const app = new Frog({ basePath: '/api' });
+export const app = new Frog({ basePath: '/api', verify: false });
 
 app.frame('/', () => {
   return {
@@ -38,11 +38,11 @@ app.frame('/', () => {
             whiteSpace: 'pre-wrap',
           }}
         >
-          {Date.now().toString()}
+          {new Date().toUTCString()}
         </div>
       </div>
     ),
-    intents: [],
+    intents: [<Button value="ping">Ping</Button>],
   };
 });
 
