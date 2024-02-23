@@ -47,3 +47,4 @@ app.frame('/', () => {
 });
 
 export const GET = handle(app);
+export const POST = handle(app);
