@@ -1,7 +1,26 @@
-import { Button, Frog } from 'frog';
+import { Button, ButtonProps, Frog } from 'frog';
 import { handle } from 'frog/vercel';
+import { HtmlEscapedString } from 'hono/utils/html';
 
-export const app = new Frog({ basePath: '/api', verify: false });
+export const app = new Frog({
+  basePath: '/api',
+});
+
+type ButtonTxProps = ButtonProps & {
+  target: string;
+};
+ButtonTx.__type = 'button';
+export function ButtonTx({ children, index = 1, target }: ButtonTxProps) {
+  return [
+    <meta
+      property={`fc:frame:button:${index}`}
+      content={children}
+      data-value="_m"
+    />,
+    <meta property={`fc:frame:button:${index}:action`} content="tx" />,
+    <meta property={`fc:frame:button:${index}:target`} content={target} />,
+  ] as unknown as HtmlEscapedString;
+}
 
 app.get('/trx', (c) => {
   return c.json({
@@ -52,8 +71,11 @@ app.frame('/', () => {
         </div>
       </div>
     ),
-
-    intents: [<Button value="ping">Ping</Button>],
+    intents: [
+      <ButtonTx target="https://8efec881-667f-4eff-af08-694dda8720b1.vecel.app/api/trx">
+        Rent
+      </ButtonTx>,
+    ],
   };
 });
 
