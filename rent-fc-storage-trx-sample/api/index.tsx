@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Frog } from 'frog';
+import { ButtonProps, Frog } from 'frog';
 import { handle } from 'frog/vercel';
 import { HtmlEscapedString } from 'hono/utils/html';
 
@@ -27,8 +27,8 @@ app.get('/trx', (c) => {
     description: 'Rent 1 Farcaster storage unit',
     to: '0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D',
     data: '0x783a112b0000000000000000000000000000000000000000000000000000000000000e250000000000000000000000000000000000000000000000000000000000000001',
-    value: 984316556204476,
-    chainId: 10,
+    value: '984316556204476',
+    chainId: '10',
   });
 });
 
