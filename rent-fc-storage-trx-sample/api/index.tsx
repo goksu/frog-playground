@@ -22,24 +22,24 @@ export function ButtonTx({ children, index = 1, target }: ButtonTxProps) {
   ] as unknown as HtmlEscapedString;
 }
 
-app.get('/trx', (c) => {
-  return c.json({
-    description: 'Rent 1 Farcaster storage unit',
-    to: '0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D',
-    data: '0x783a112b0000000000000000000000000000000000000000000000000000000000000e250000000000000000000000000000000000000000000000000000000000000001',
-    value: '984316556204476',
-    chainId: '10',
-  });
-});
+// app.get('/trx', (c) => {
+//   return c.json({
+//     description: 'Rent 1 Farcaster storage unit',
+//     to: '0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D',
+//     data: '0x783a112b0000000000000000000000000000000000000000000000000000000000000e250000000000000000000000000000000000000000000000000000000000000001',
+//     value: '984316556204476',
+//     chainId: '10',
+//   });
+// });
 
 app.frame('/', () => {
   return {
-    imageOptions: {
-      headers: {
-        'content-type': 'image/png',
-        'cache-control': 'public, immutable, no-transform, max-age=0',
-      },
-    },
+    // imageOptions: {
+    //   headers: {
+    //     'content-type': 'image/png',
+    //     'cache-control': 'public, immutable, no-transform, max-age=0',
+    //   },
+    // },
     image: (
       <div
         style={{
@@ -67,12 +67,12 @@ app.frame('/', () => {
             whiteSpace: 'pre-wrap',
           }}
         >
-          {new Date().toUTCString()}
+          Farcaster Storage
         </div>
       </div>
     ),
     intents: [
-      <ButtonTx target="https://8efec881-667f-4eff-af08-694dda8720b1.vecel.app/api/trx">
+      <ButtonTx target="https://api.warpcast.com/v2/rent-transaction-intent?fid=6841&units=1">
         Rent
       </ButtonTx>,
     ],
