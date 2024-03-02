@@ -72,7 +72,7 @@ app.frame('/', () => {
       </div>
     ),
     intents: [
-      <ButtonTx target="https://api.warpcast.com/v2/rent-transaction-intent?fid=6841&units=1">
+      <ButtonTx target="https://api.warpcast.com/v2/rent-transaction-data?fid=6841&units=1">
         Rent
       </ButtonTx>,
     ],
